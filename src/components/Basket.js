@@ -2,6 +2,8 @@ import React from "react";
 
 function Basket(props) {
   const { cartItems, onAdd, onRemove } = props;
+  const array = [];
+  const price = [];
   const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
   const taxPrice = itemPrice * 0.14;
   const shippingPrice = itemPrice > 2000 ? 0 : 50;
@@ -21,7 +23,17 @@ function Basket(props) {
               -
             </button>
           </div>
-          <div className="col-2 text-right">{item.qty} X ${item.price.toFixed(2)}</div>
+          <div className="col-2 text-right">
+            {item.qty} X ${item.price.toFixed(2)}
+          </div>
+          ]
+          {array.push({
+            id: item.id,
+            name: item.name,
+            qty: item.qty,
+            price: item.price.toFixed(2),
+          })}
+          {console.log(array)}
         </div>
       ))}
       {cartItems.length !== 0 && (
@@ -49,8 +61,17 @@ function Basket(props) {
           </div>
           <hr />
           <div className="row">
-            <button onClick={() => alert('Item was checkout')}>Check Out</button>
+            <button onClick={() => alert("Item was checkout")}>
+              Check Out
+            </button>
           </div>
+          {price.push({
+            priceItem: itemPrice.toFixed(2),
+            tax: taxPrice.toFixed(2),
+            ship: shippingPrice.toFixed(2),
+            total: totalPrice.toFixed(2)
+          })}
+          {console.log(price)}
         </>
       )}
     </aside>
