@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Product(props) {
-  const {product, onAdd} = props;
+  const { product, onAdd } = props;
   return (
     <div>
       <img className="small" src={product.image} alt={product.name}></img>
@@ -11,7 +11,7 @@ function Product(props) {
         <button onClick={() => onAdd(product)}>Add To Cart</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default Product
+export default Product;
